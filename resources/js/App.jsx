@@ -1,7 +1,22 @@
-import React, { useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { Layout } from './components';
 import { AuthProvider, useAuth } from './contexts/useAuth';
+
+const CustomersPage = () => {
+    const [customers, setCustomers] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/v1/customers')
+            .then(response => {
+                setCustomers(response.data);
+            })
+    }, [])
+
+    return (
+        <div>{JSON.stringify(customers)}</div>
+    )
+}
 
 const Test = () => {
     const auth = useAuth();
@@ -18,6 +33,9 @@ const Test = () => {
         <>
             <h1>Welcome {auth.user?.name}</h1>
             <button onClick={handleLogout}>Logout</button>
+            <div>
+                <Link to='/customers'>Customers</Link>
+            </div>
         </>
     )
 }
@@ -67,6 +85,7 @@ const App = () => {
                 <Route path='/login' element={<LoginPage />} />
                 <Route element={<Layout />}>
                     <Route path='/' element={<Test />} />
+                    <Route path='customers' element={<CustomersPage />} />
                 </Route>
             </Routes>
         </AuthProvider>
