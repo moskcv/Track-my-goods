@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
         retry: false,
     })
 
-    const value = { user: data, refetch };
+    const value = { user: data, error, refetch };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

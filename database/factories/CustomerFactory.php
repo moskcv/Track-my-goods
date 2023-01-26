@@ -9,10 +9,10 @@ class CustomerFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->company(),
-            'status' => $this->faker->randomElement([0, 1, 2]),
-            'pricing_plan' => $this->faker->randomElement([0, 1]),
-            'last_payed_at' => $this->faker->date('Y-m-d'),
+            'name' => fake()->company(),
+            'status' => fake()->randomElement([0, 1, 2]),
+            'pricing_plan' => fake()->randomElement([0, 1]),
+            'last_payed_at' => fake()->date('Y-m-d'),
         ];
     }
 }

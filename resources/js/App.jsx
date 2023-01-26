@@ -21,7 +21,7 @@ const Test = () => {
 
     const handleLogout = () => {
         axios.post('/logout')
-            .then(response => {
+            .then(() => {
                 navigate('/login', { replace: true });
             })
     }
