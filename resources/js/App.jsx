@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { Layout } from './components';
 import { AuthProvider, useAuth } from './contexts/useAuth';
 
 const CustomersPage = () => {
-    const [customers, setCustomers] = useState([]);
-
-    useEffect(() => {
-        axios.get('/api/v1/customers')
-            .then(response => {
-                setCustomers(response.data);
-            })
-    }, [])
+    const { data } = useQuery('customers', () => {
+        return axios.get('/api/v1/customers')
+            .then(response => response.data);
+    })
 
     return (
-        <div>{JSON.stringify(customers)}</div>
+        <div>{JSON.stringify(data)}</div>
     )
 }
 
@@ -45,8 +42,9 @@ const LoginPage = () => {
         email: '',
         password: ''
     })
-    const navigate = useNavigate();
     const auth = useAuth();
+    const navigate = useNavigate();
+
 
     const handleFormSubmit = e => {
         e.preventDefault();
@@ -54,9 +52,8 @@ const LoginPage = () => {
         axios.post('/login', loginData)
             .then(response => {
                 if (response.status === 200) {
-                    auth.get(() => {
-                        navigate('/', { replace: true });
-                    })
+                    auth.refetch();
+                    navigate('/', { replace: true });
                 }
             })
     }
@@ -78,8 +75,16 @@ const LoginPage = () => {
     )
 }
 
-const App = () => {
-    return (
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+        },
+    },
+});
+
+const App = () => (
+    <QueryClientProvider client={queryClient}>
         <AuthProvider>
             <Routes>
                 <Route path='/login' element={<LoginPage />} />
@@ -89,7 +94,7 @@ const App = () => {
                 </Route>
             </Routes>
         </AuthProvider>
-    )
-}
+    </QueryClientProvider>
+);
 
 export default App;
