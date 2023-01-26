@@ -15,8 +15,13 @@ class Customer extends Model
         return $this->hasMany(User::class);
     }
 
-    public function products()
+    public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function attributes(): HasMany
+    {
+        return $this->hasMany(Attribute::class);
     }
 }
