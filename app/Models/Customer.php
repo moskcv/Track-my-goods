@@ -14,4 +14,9 @@ class Customer extends Model
     {
         return $this->hasMany(User::class, 'customer_id', 'id');
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'customer_id', 'id');
+    }
 }
