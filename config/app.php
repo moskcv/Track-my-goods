@@ -187,7 +187,6 @@ return [
          */
         Laravel\Fortify\FortifyServiceProvider::class,
 
-
         /*
          * Application Service Providers...
          */
