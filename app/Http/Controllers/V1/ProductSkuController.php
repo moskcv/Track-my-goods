@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\ProductSku;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductSkuController extends Controller
 {
     public function index()
     {
-        return ProductSku::all();
+        return ProductSku::with('attributes')->get();
     }
 
     public function store(Request $request)

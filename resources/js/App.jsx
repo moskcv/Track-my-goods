@@ -15,6 +15,17 @@ const CustomersPage = () => {
     )
 }
 
+const ProductSkuPage = () => {
+    const { data } = useQuery('skus', () => {
+        return axios.get('/api/v1/skus')
+            .then(response => response.data);
+    })
+
+    return (
+        <div>{JSON.stringify(data)}</div>
+    )
+}
+
 const Test = () => {
     const auth = useAuth();
     const navigate = useNavigate();
@@ -32,6 +43,9 @@ const Test = () => {
             <button onClick={handleLogout}>Logout</button>
             <div>
                 <Link to='/customers'>Customers</Link>
+            </div>
+            <div>
+                <Link to='/sku'>Sku</Link>
             </div>
         </>
     )
@@ -91,6 +105,7 @@ const App = () => (
                 <Route element={<Layout />}>
                     <Route path='/' element={<Test />} />
                     <Route path='customers' element={<CustomersPage />} />
+                    <Route path='sku' element={<ProductSkuPage />} />
                 </Route>
             </Routes>
         </AuthProvider>

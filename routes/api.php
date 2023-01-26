@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\V1\CustomerController;
+use App\Http\Controllers\V1\ProductSkuController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
     Route::apiResource('customers', CustomerController::class);
+    Route::apiResource('skus', ProductSkuController::class);
 });

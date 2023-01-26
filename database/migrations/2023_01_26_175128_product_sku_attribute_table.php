@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_sku_id');
             $table->unsignedBigInteger('attribute_id');
-            $table->integer('value');
+            $table->string('value');
             $table->foreign('product_sku_id')->references('id')->on('product_skus')->onDelete('cascade');
             $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
         });
