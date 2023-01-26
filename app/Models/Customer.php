@@ -12,11 +12,11 @@ class Customer extends Model
 
     public function users(): HasMany
     {
-        return $this->hasMany(User::class, 'customer_id', 'id');
+        return $this->hasMany(User::class);
     }
 
     public function products()
     {
-        return $this->hasMany(Product::class, 'customer_id', 'id');
+        return $this->hasMany(Product::class);
     }
 }
