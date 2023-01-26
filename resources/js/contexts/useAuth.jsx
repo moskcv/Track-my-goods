@@ -1,11 +1,16 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
+
+const ALLOWED_URLS = [
+    '/login'
+];
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const get = callback => {
         axios.get('/api/user')
@@ -23,7 +28,9 @@ export const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        get();
+        if (! ALLOWED_URLS.includes(location.pathname)) {
+            get();
+        }
     }, [])
 
     const value = {user, get};
