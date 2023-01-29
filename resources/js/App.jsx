@@ -3,28 +3,7 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { Layout } from './components';
 import { AuthProvider, useAuth } from './contexts/useAuth';
-
-const CustomersPage = () => {
-    const { data } = useQuery('customers', () => {
-        return axios.get('/api/v1/customers')
-            .then(response => response.data);
-    })
-
-    return (
-        <div>{JSON.stringify(data)}</div>
-    )
-}
-
-const ProductSkuPage = () => {
-    const { data } = useQuery('skus', () => {
-        return axios.get('/api/v1/skus')
-            .then(response => response.data);
-    })
-
-    return (
-        <div>{JSON.stringify(data)}</div>
-    )
-}
+import { ProductsPage } from './pages';
 
 const Test = () => {
     const auth = useAuth();
@@ -104,8 +83,7 @@ const App = () => (
                 <Route path='/login' element={<LoginPage />} />
                 <Route element={<Layout />}>
                     <Route path='/' element={<Test />} />
-                    <Route path='customers' element={<CustomersPage />} />
-                    <Route path='sku' element={<ProductSkuPage />} />
+                    <Route path='products' element={<ProductsPage />} />
                 </Route>
             </Routes>
         </AuthProvider>

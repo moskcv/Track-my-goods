@@ -18,6 +18,6 @@ class Product extends Model
 
     public function sku(): HasMany
     {
-        return $this->hasMany(ProductSku::class);
+        return $this->hasMany(Sku::class);
     }
 }

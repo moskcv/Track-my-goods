@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class ProductSku extends Model
+class Sku extends Model
 {
     use HasFactory;
 
@@ -18,6 +18,6 @@ class ProductSku extends Model
 
     public function attributes(): BelongsToMany
     {
-        return $this->belongsToMany(Attribute::class, 'product_sku_attribute')->withPivot('value');
+        return $this->belongsToMany(Attribute::class, 'sku_attribute')->withPivot('value');
     }
 }

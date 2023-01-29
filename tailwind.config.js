@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./resources/**/*.jsx"
   ],
+  darkMode: 'class',
   theme: {
     extend: {},
   },

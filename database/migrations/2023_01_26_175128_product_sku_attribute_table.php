@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_sku_attribute', function (Blueprint $table) {
+        Schema::create('sku_attribute', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_sku_id');
+            $table->unsignedBigInteger('sku_id');
             $table->unsignedBigInteger('attribute_id');
             $table->string('value');
-            $table->foreign('product_sku_id')->references('id')->on('product_skus')->onDelete('cascade');
+            $table->foreign('sku_id')->references('id')->on('skus')->onDelete('cascade');
             $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_sku_attribute');
+        Schema::dropIfExists('sku_attribute');
     }
 };
