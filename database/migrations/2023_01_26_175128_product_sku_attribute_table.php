@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sku_attribute', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('sku_id');
             $table->unsignedBigInteger('attribute_id');
             $table->string('value');
