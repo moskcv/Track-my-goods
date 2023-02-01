@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomeIcon, LightBulbIcon } from '@heroicons/react/24/outline';
+import { HomeIcon, LightBulbIcon, UsersIcon } from '@heroicons/react/24/outline';
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -17,6 +17,12 @@ const Sidebar = () => {
                         <NavLink to='/' className='flex px-4 py-2 items-center'>
                             <HomeIcon className='w-6 inline mr-4' />
                             <span>Dashboard</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='customers' className='flex px-4 py-2 items-center'>
+                            <UsersIcon className='w-6 inline mr-4' />
+                            <span>Клієнти</span>
                         </NavLink>
                     </li>
                     <li>

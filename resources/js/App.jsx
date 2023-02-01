@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { Layout } from './components';
 import { AuthProvider, useAuth } from './contexts/useAuth';
-import { ProductsPage } from './pages';
+import { CustomersEditPage, CustomersIndexPage, ProductsPage } from './pages';
+import CustomersCreatePage from './pages/Customers/CustomersCreatePage/CustomersCreatePage';
 
 const Test = () => {
     const auth = useAuth();
@@ -84,8 +86,13 @@ const App = () => (
                 <Route element={<Layout />}>
                     <Route path='/' element={<Test />} />
                     <Route path='products' element={<ProductsPage />} />
+                    <Route path='customers' element={<CustomersIndexPage />} />
+                    <Route path='customers/create' element={<CustomersCreatePage />} />
+                    <Route path='customers/:id/edit' element={<CustomersEditPage />} />
                 </Route>
             </Routes>
+
+            <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
         </AuthProvider>
     </QueryClientProvider>
 );

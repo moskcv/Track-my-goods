@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->tinyInteger('status');
             $table->tinyInteger('pricing_plan');
-            $table->date('last_payed_at')->nullable();
+            $table->tinyInteger('package_type');
+            $table->timestamp('payed_at')->nullable();
+            $table->timestamp('next_payment_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
