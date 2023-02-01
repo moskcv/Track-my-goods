@@ -31,6 +31,4 @@ Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
 
     Route::apiResource('skus', SkuController::class);
     Route::apiResource('products', ProductController::class);
-
-
 });
