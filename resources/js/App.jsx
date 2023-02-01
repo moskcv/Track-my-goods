@@ -4,8 +4,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { Layout } from './components';
 import { AuthProvider, useAuth } from './contexts/useAuth';
-import { CustomersEditPage, CustomersIndexPage, ProductsPage } from './pages';
-import CustomersCreatePage from './pages/Customers/CustomersCreatePage/CustomersCreatePage';
+import { CustomersCreatePage, CustomersEditPage, CustomersIndexPage, RolesCreatePage, RolesEditPage, RolesIndexPage } from './pages';
 
 const Test = () => {
     const auth = useAuth();
@@ -85,10 +84,14 @@ const App = () => (
                 <Route path='/login' element={<LoginPage />} />
                 <Route element={<Layout />}>
                     <Route path='/' element={<Test />} />
-                    <Route path='products' element={<ProductsPage />} />
+
                     <Route path='customers' element={<CustomersIndexPage />} />
                     <Route path='customers/create' element={<CustomersCreatePage />} />
                     <Route path='customers/:id/edit' element={<CustomersEditPage />} />
+
+                    <Route path='roles' element={<RolesIndexPage />} />
+                    <Route path='roles/create' element={<RolesCreatePage />} />
+                    <Route path='roles/:id/edit' element={<RolesEditPage />} />
                 </Route>
             </Routes>
 

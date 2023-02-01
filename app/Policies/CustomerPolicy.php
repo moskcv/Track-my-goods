@@ -10,25 +10,12 @@ class CustomerPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can view any models.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         return $user->can('view customers');
     }
 
-    /**
-     * Determine whether the user can view the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function view(User $user, Customer $customer)
+    public function view(User $user, Customer $customer): bool
     {
         if ($user->customer_id === $customer->id) {
             return true;
@@ -37,25 +24,12 @@ class CustomerPolicy
         return $user->can('view customers');
     }
 
-    /**
-     * Determine whether the user can create models.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return $user->can('create customers');
     }
 
-    /**
-     * Determine whether the user can update the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function update(User $user, Customer $customer)
+    public function update(User $user, Customer $customer): bool
     {
         if ($user->customer_id === $customer->id) {
             return true;
@@ -64,14 +38,7 @@ class CustomerPolicy
         return $user->can('update customers');
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function delete(User $user, Customer $customer)
+    public function delete(User $user, Customer $customer): bool
     {
         return $user->can('delete customers');
     }

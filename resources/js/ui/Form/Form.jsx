@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../Input/Input';
 import Select from '../Select/Select';
+import Toggle from '../Toggle/Toggle';
 
 const Form = ({ onSubmit, children }) => {
     const handleFormSubmit = e => {
@@ -25,5 +26,6 @@ const Group = ({ children }) => (
 Form.Input = Input;
 Form.Select = Select;
 Form.Group = Group;
+Form.Toggle = Toggle;
 
 export default Form;
