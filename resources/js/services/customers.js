@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const fetchCustomers = async ({ queryKey }) => {
+    // eslint-disable-next-line no-unused-vars
     const [_, params] = queryKey;
 
     return await axios.get('/api/v1/customers', {
@@ -9,6 +10,7 @@ export const fetchCustomers = async ({ queryKey }) => {
 }
 
 export const fetchCustomer = async ({ queryKey }) => {
+    // eslint-disable-next-line no-unused-vars
     const [_, id] = queryKey;
 
     return await axios.get(`/api/v1/customers/${id}`);

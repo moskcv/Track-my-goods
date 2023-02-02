@@ -5,6 +5,7 @@ export const getAuthUser = async () => {
 }
 
 export const fetchUsers = async ({ queryKey }) => {
+    // eslint-disable-next-line no-unused-vars
     const [_, params] = queryKey;
 
     return await axios.get('/api/v1/users', {
@@ -13,6 +14,7 @@ export const fetchUsers = async ({ queryKey }) => {
 }
 
 export const fetchUser = async ({ queryKey }) => {
+    // eslint-disable-next-line no-unused-vars
     const [_, id] = queryKey;
 
     return await axios.get(`/api/v1/users/${id}`);

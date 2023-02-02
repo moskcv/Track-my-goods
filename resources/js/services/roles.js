@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const fetchRoles = async ({ queryKey }) => {
+    // eslint-disable-next-line no-unused-vars
     const [_, params] = queryKey;
 
     return await axios.get('/api/v1/roles', {
@@ -17,6 +18,7 @@ export const fetchRolesOptions = async () => {
 }
 
 export const fetchRole = async ({ queryKey }) => {
+    // eslint-disable-next-line no-unused-vars
     const [_, id] = queryKey;
 
     return await axios.get(`/api/v1/roles/${id}`);
