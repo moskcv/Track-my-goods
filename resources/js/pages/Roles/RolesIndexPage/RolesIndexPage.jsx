@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { deleteRoles, fetchRoles } from '../../../services/roles';
-import { Panel, Table } from '../../../ui';
+import { Pagination, Panel, Table } from '../../../ui';
 import { Link } from 'react-router-dom';
 import { TrashIcon } from '@heroicons/react/24/outline';
 

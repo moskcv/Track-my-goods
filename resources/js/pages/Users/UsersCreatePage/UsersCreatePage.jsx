@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import { fetchCustomersOptions } from '../../../services/customers';
-import { fetchRolesOptions } from '../../../services/roles';
 import { createUser } from '../../../services/users';
-import { Button, Form, Panel } from '../../../ui';
+import { Panel } from '../../../ui';
 import CreateUpdateForm from '../components/CreateUpdateForm';
 
 const UsersCreatePage = () => {

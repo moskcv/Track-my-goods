@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { Layout } from './components';
 import { AuthProvider, useAuth } from './contexts/useAuth';
 import { CustomersCreatePage, CustomersEditPage, CustomersIndexPage, RolesCreatePage, RolesEditPage, RolesIndexPage, UsersCreatePage, UsersEditPage, UsersIndexPage } from './pages';
