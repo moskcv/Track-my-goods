@@ -1,8 +1,18 @@
+import React, { useMemo } from 'react';
 import { uniqueId } from 'lodash';
-import React from 'react';
 
-const Select = ({ value, label, required, options = [], onChange }) => {
+const Select = ({ value, label, required, options = [], onChange, allowEmpty = true }) => {
     const id = uniqueId();
+
+    const renderOptions = useMemo(() => {
+        const newOptions = [...options];
+
+        if (allowEmpty) {
+            newOptions.unshift({ value: '', text: '' });
+        }
+
+        return newOptions;
+    }, [options, allowEmpty])
 
     return (
         <div className='mb-4 flex-1'>
@@ -13,7 +23,7 @@ const Select = ({ value, label, required, options = [], onChange }) => {
                 </label>
             }
             <select className='w-full' onChange={onChange} required={required} value={value}>
-                {options.map(option => (
+                {renderOptions.map(option => (
                     <option key={option.value} value={option.value}>{option.text}</option>
                 ))}
             </select>

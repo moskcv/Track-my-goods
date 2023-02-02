@@ -68,7 +68,7 @@ const CustomersIndexPage = () => {
                 </Table>
             </Panel.Body>
             <Panel.Footer>
-                {data?.data?.last_page > 1 &&
+                {data?.data?.meta?.last_page > 1 &&
                     <Pagination
                         currentPage={queryParams.page}
                         totalPages={data?.data?.last_page}

@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { fetchRoles } from '../../../services/roles';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { deleteRoles, fetchRoles } from '../../../services/roles';
 import { Panel, Table } from '../../../ui';
 import { Link } from 'react-router-dom';
+import { TrashIcon } from '@heroicons/react/24/outline';
 
 const RolesIndexPage = () => {
+    const queryClient = useQueryClient();
+
     const [queryParams, setQueryParams] = useState({
         page: 1,
         sort: 'asc',
         orderBy: 'created_at',
     })
     const { data } = useQuery({
-        queryKey: ['roles', {...queryParams}],
+        queryKey: ['roles', queryParams],
         queryFn: fetchRoles
+    })
+
+    const { mutate: remove } = useMutation({
+        mutationFn: deleteRoles,
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['roles', queryParams] })
+        }
     })
 
     return (
@@ -30,7 +40,9 @@ const RolesIndexPage = () => {
                         {data?.data?.data.map(role => (
                             <Table.Row key={role.id}>
                                 <Table.Cell><Link to={`/roles/${role.id}/edit`}>{role.name}</Link></Table.Cell>
-                                <Table.Cell align='right'>...</Table.Cell>
+                                <Table.Cell align='right'>
+                                    <button type='button' onClick={() => remove(role.id)}><TrashIcon className='w-6 h-6' /></button>
+                                </Table.Cell>
                             </Table.Row>
                         ))}
                     </Table.Body>

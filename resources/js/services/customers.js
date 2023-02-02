@@ -14,6 +14,10 @@ export const fetchCustomer = async ({ queryKey }) => {
     return await axios.get(`/api/v1/customers/${id}`);
 }
 
+export const fetchCustomersOptions = async () => {
+    return await axios.get('/api/v1/customers/options');
+}
+
 export const createCustomer = async (data) => {
     return await axios.post(`/api/v1/customers`, data);
 }

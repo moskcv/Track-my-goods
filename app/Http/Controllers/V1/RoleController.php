@@ -64,4 +64,11 @@ class RoleController extends Controller
         // TODO: Think on response
         $role->delete();
     }
+
+    public function options()
+    {
+        $this->authorize('view roles');
+
+        return Role::pluck('name', 'id');
+    }
 }

@@ -19,6 +19,11 @@ class RolePolicy
         return $user->can('view roles');
     }
 
+    public function options(User $user): bool
+    {
+        return $user->can('view roles');
+    }
+
     public function create(User $user): bool
     {
         return $user->can('create roles');

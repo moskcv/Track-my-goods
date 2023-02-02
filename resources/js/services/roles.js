@@ -12,6 +12,10 @@ export const createRole = async (data) => {
     return await axios.post(`/api/v1/roles`, data);
 }
 
+export const fetchRolesOptions = async () => {
+    return await axios.get('/api/v1/roles/options');
+}
+
 export const fetchRole = async ({ queryKey }) => {
     const [_, id] = queryKey;
 
@@ -20,4 +24,8 @@ export const fetchRole = async ({ queryKey }) => {
 
 export const updateRole = async (data) => {
     return await axios.patch(`/api/v1/roles/${data.id}`, data);
+}
+
+export const deleteRoles = async (id) => {
+    return await axios.delete(`/api/v1/roles/${id}`);
 }

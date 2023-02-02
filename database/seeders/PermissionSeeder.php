@@ -37,6 +37,10 @@ class PermissionSeeder extends Seeder
             'create roles',
             'update roles',
             'delete roles',
+            'view users',
+            'create users',
+            'update users',
+            'delete users',
         ];
     }
 }

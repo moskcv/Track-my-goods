@@ -24,6 +24,11 @@ class CustomerPolicy
         return $user->can('view customers');
     }
 
+    public function options(User $user): bool
+    {
+        return $user->can('view customers');
+    }
+
     public function create(User $user): bool
     {
         return $user->can('create customers');

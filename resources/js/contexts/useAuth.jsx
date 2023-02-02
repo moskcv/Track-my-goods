@@ -7,7 +7,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const { data, error, refetch } = useQuery({ queryKey: ['user'], queryFn: getAuthUser }, { retry: false });
 
-    const value = { user: data, error, refetch };
+    const value = { user: data?.data, error, refetch };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

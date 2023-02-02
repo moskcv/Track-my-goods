@@ -9,6 +9,7 @@ use App\Models\Customer;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Support\Collection;
 
 class CustomerController extends Controller
 {
@@ -59,5 +60,12 @@ class CustomerController extends Controller
     {
         // TODO: Think on response
         $customer->delete();
+    }
+
+    public function options(): Collection
+    {
+        $this->authorize('view customers');
+
+        return Customer::pluck('name', 'id');
     }
 }
