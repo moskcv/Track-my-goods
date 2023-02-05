@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchRole, updateRole } from '../../../services/roles';
 import { Panel } from '../../../ui';
-import CreateUpdateForm from '../components/CreateUpdateForm';
+import RoleForm from '../components/RoleForm';
 
 const RolesEditPage = () => {
     const { id } = useParams();
@@ -24,7 +24,7 @@ const RolesEditPage = () => {
         <Panel>
             <Panel.Header>{role.name}</Panel.Header>
             <Panel.Body>
-                <CreateUpdateForm
+                <RoleForm
                     onSubmit={() => update({...role})}
                     role={role}
                     setRole={setRole}

@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { Panel } from '../../../ui';
 import { createRole } from '../../../services/roles';
-import CreateUpdateForm from '../components/CreateUpdateForm';
+import RoleForm from '../components/RoleForm';
 
 const RolesCreatePage = () => {
     const [role, setRole] = useState({});
@@ -21,7 +21,7 @@ const RolesCreatePage = () => {
         <Panel>
             <Panel.Header>Нова роль</Panel.Header>
             <Panel.Body>
-                <CreateUpdateForm
+                <RoleForm
                     onSubmit={() => create({...role})}
                     role={role}
                     setRole={setRole}

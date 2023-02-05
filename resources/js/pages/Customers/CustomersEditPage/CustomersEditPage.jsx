@@ -3,7 +3,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import { fetchCustomer, updateCustomer } from '../../../services/customers';
 import { Panel } from '../../../ui';
-import CreateUpdateForm from '../components/CreateUpdateForm';
+import CustomerForm from '../components/CustomerForm';
 
 const CustomersEditPage = () => {
     const { id } = useParams();
@@ -25,7 +25,7 @@ const CustomersEditPage = () => {
         <Panel>
             <Panel.Header>{data?.data.data.name}</Panel.Header>
             <Panel.Body>
-                <CreateUpdateForm
+                <CustomerForm
                     onSubmit={() => update({...customer, id})}
                     customer={customer}
                     setCustomer={setCustomer}

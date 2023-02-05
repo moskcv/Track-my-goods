@@ -1,9 +1,9 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import { fetchUser, updateUser } from '../../../services/users';
 import { Panel } from '../../../ui';
-import CreateUpdateForm from '../components/CreateUpdateForm';
+import UserForm from '../components/UserForm';
 
 const UsersEditPage = () => {
     const { id } = useParams();
@@ -26,7 +26,7 @@ const UsersEditPage = () => {
         <Panel>
             <Panel.Header>{user.name}</Panel.Header>
             <Panel.Body>
-                <CreateUpdateForm
+                <UserForm
                     onSubmit={() => update({...user})}
                     user={user}
                     setUser={setUser}

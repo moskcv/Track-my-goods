@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../../services/users';
 import { Panel } from '../../../ui';
-import CreateUpdateForm from '../components/CreateUpdateForm';
+import UserForm from '../components/UserForm';
 
 const UsersCreatePage = () => {
     const [user, setUser] = useState({});
@@ -20,7 +20,7 @@ const UsersCreatePage = () => {
         <Panel>
             <Panel.Header>Новий користувач</Panel.Header>
             <Panel.Body>
-                <CreateUpdateForm
+                <UserForm
                     onSubmit={() => create({...user})}
                     user={user}
                     setUser={setUser}

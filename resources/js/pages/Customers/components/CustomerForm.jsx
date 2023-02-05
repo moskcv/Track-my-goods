@@ -2,7 +2,7 @@ import React from 'react';
 import { CUSTOMER_STATUSES, PACKAGE_TYPES, PAYMENTS_TYPES } from '../../../helpers/constants';
 import { Button, Form } from '../../../ui';
 
-const CreateUpdateForm = ({ onSubmit, customer, setCustomer }) => {
+const CustomerForm = ({ onSubmit, customer, setCustomer }) => {
     return (
         <Form onSubmit={onSubmit}>
             <Form.Input
@@ -48,4 +48,4 @@ const CreateUpdateForm = ({ onSubmit, customer, setCustomer }) => {
     )
 }
 
-export default CreateUpdateForm;
+export default CustomerForm;

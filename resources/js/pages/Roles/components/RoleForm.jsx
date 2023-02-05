@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Form } from '../../../ui';
 import PermissionsBlock from './PermissionsBlock';
 
-const CreateUpdateForm = ({ onSubmit, role, setRole }) => {
+const RoleForm = ({ onSubmit, role, setRole }) => {
     const handlePermission = permission => {
         const newRole = {...role};
         if (! newRole.permissions) {
@@ -36,4 +36,4 @@ const CreateUpdateForm = ({ onSubmit, role, setRole }) => {
     )
 }
 
-export default CreateUpdateForm;
+export default RoleForm;

@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { fetchCategoriesOptions } from '../../../services/categories'
 import { Button, Form } from '../../../ui'
 
-const CreateUpdateForm = ({ onSubmit, category, setCategory }) => {
+const CategoryForm = ({ onSubmit, category, setCategory }) => {
     const { data: categories } = useQuery({
         queryKey: ['categories-options'],
         queryFn: fetchCategoriesOptions,
@@ -32,4 +32,4 @@ const CreateUpdateForm = ({ onSubmit, category, setCategory }) => {
     )
 }
 
-export default CreateUpdateForm
+export default CategoryForm;

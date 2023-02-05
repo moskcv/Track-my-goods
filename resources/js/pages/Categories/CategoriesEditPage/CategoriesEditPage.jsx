@@ -3,7 +3,7 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { fetchCategory, updateCategory } from '../../../services/categories'
 import { Panel } from '../../../ui'
-import CreateUpdateForm from '../components/CreateUpdateForm'
+import CategoryForm from '../components/CategoryForm'
 
 const CategoriesEditPage = () => {
     const { id } = useParams();
@@ -25,7 +25,7 @@ const CategoriesEditPage = () => {
         <Panel>
             <Panel.Header>{category?.title}</Panel.Header>
             <Panel.Body>
-                <CreateUpdateForm
+                <CategoryForm
                     onSubmit={() => update({...category})}
                     category={category}
                     setCategory={setCategory}

@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { createCustomer } from '../../../services/customers';
 import { Panel } from '../../../ui';
-import CreateUpdateForm from '../components/CreateUpdateForm';
+import CustomerForm from '../components/CustomerForm';
 
 const CustomersCreatePage = () => {
     const [customer, setCustomer] = useState({});
@@ -21,7 +21,7 @@ const CustomersCreatePage = () => {
         <Panel>
             <Panel.Header>Новий клієнт</Panel.Header>
             <Panel.Body>
-                <CreateUpdateForm
+                <CustomerForm
                     onSubmit={() => create({...customer})}
                     customer={customer}
                     setCustomer={setCustomer}

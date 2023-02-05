@@ -4,7 +4,7 @@ import { Button, Form } from '../../../ui';
 import { fetchRolesOptions } from '../../../services/roles';
 import { fetchCustomersOptions } from '../../../services/customers';
 
-const CreateUpdateForm = ({ onSubmit, user, setUser }) => {
+const UserForm = ({ onSubmit, user, setUser }) => {
     const { data: customers } = useQuery({
         queryKey: ['customers-options'],
         queryFn: fetchCustomersOptions,
@@ -49,4 +49,4 @@ const CreateUpdateForm = ({ onSubmit, user, setUser }) => {
     );
 }
 
-export default CreateUpdateForm;
+export default UserForm;
