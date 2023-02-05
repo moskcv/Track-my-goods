@@ -3,9 +3,7 @@
 use App\Http\Controllers\V1\CategoryController;
 use App\Http\Controllers\V1\CustomerController;
 use App\Http\Controllers\V1\PermissionController;
-use App\Http\Controllers\V1\ProductController;
 use App\Http\Controllers\V1\RoleController;
-use App\Http\Controllers\V1\SkuController;
 use App\Http\Controllers\V1\StorageController;
 use App\Http\Controllers\V1\UserController;
 use Illuminate\Http\Request;
@@ -41,7 +39,4 @@ Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
     Route::apiResource('storages', StorageController::class);
 
     Route::get('permissions', [PermissionController::class, 'index']);
-
-    Route::apiResource('skus', SkuController::class);
-    Route::apiResource('products', ProductController::class);
 });
