@@ -5,7 +5,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Layout } from './components';
 import { AuthProvider, useAuth } from './contexts/useAuth';
-import { CustomersCreatePage, CustomersEditPage, CustomersIndexPage, RolesCreatePage, RolesEditPage, RolesIndexPage, UsersCreatePage, UsersEditPage, UsersIndexPage } from './pages';
+import { CategoriesCreatePage, CategoriesEditPage, CategoriesIndexPage, CustomersCreatePage, CustomersEditPage, CustomersIndexPage, RolesCreatePage, RolesEditPage, RolesIndexPage, StoragesCreatePage, StoragesEditPage, StoragesIndexPage, UsersCreatePage, UsersEditPage, UsersIndexPage } from './pages';
 
 const Test = () => {
     const auth = useAuth();
@@ -81,6 +81,14 @@ const App = () => (
                     <Route path='roles' element={<RolesIndexPage />} />
                     <Route path='roles/create' element={<RolesCreatePage />} />
                     <Route path='roles/:id/edit' element={<RolesEditPage />} />
+
+                    <Route path='categories' element={<CategoriesIndexPage />} />
+                    <Route path='categories/create' element={<CategoriesCreatePage />} />
+                    <Route path='categories/:id/edit' element={<CategoriesEditPage />} />
+
+                    <Route path='storages' element={<StoragesIndexPage />} />
+                    <Route path='storages/create' element={<StoragesCreatePage />} />
+                    <Route path='storages/:id/edit' element={<StoragesEditPage />} />
                 </Route>
             </Routes>
 
