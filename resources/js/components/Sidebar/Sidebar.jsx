@@ -1,5 +1,5 @@
 import React from 'react';
-import { BuildingOfficeIcon, ClipboardDocumentIcon, FingerPrintIcon, HomeIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/outline';
+import { BuildingOfficeIcon, ClipboardDocumentIcon, CogIcon, FingerPrintIcon, HomeIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/outline';
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -47,6 +47,12 @@ const Sidebar = () => {
                         <NavLink to='storages' className='flex px-4 py-2 items-center'>
                             <MapPinIcon className='w-6 inline mr-4' />
                             <span>Склади/Магазини</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='attributes' className='flex px-4 py-2 items-center'>
+                            <CogIcon className='w-6 inline mr-4' />
+                            <span>Атрибути</span>
                         </NavLink>
                     </li>
                 </ul>

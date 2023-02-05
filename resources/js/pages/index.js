@@ -17,3 +17,7 @@ export { default as CategoriesEditPage } from './Categories/CategoriesEditPage/C
 export { default as StoragesCreatePage } from './Storages/StoragesCreatePage/StoragesCreatePage';
 export { default as StoragesIndexPage } from './Storages/StoragesIndexPage/StoragesIndexPage';
 export { default as StoragesEditPage } from './Storages/StoragesEditPage/StoragesEditPage';
+
+export { default as AttributesCreatePage } from './Attributes/AttributesCreatePage/AttributesCreatePage';
+export { default as AttributesIndexPage } from './Attributes/AttributesIndexPage/AttributesIndexPage';
+export { default as AttributesEditPage } from './Attributes/AttributesEditPage/AttributesEditPage';

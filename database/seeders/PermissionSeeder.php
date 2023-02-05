@@ -49,6 +49,10 @@ class PermissionSeeder extends Seeder
             'create categories',
             'update categories',
             'delete categories',
+            'view attributes',
+            'create attributes',
+            'update attributes',
+            'delete attributes',
         ];
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\V1\AttributeController;
 use App\Http\Controllers\V1\CategoryController;
 use App\Http\Controllers\V1\CustomerController;
 use App\Http\Controllers\V1\PermissionController;
@@ -34,6 +35,9 @@ Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
 
     Route::get('categories/options', [CategoryController::class, 'options']);
     Route::apiResource('categories', CategoryController::class);
+
+    Route::get('attributes/options', [AttributeController::class, 'options']);
+    Route::apiResource('attributes', AttributeController::class);
 
     Route::get('storages/options', [StorageController::class, 'options']);
     Route::apiResource('storages', StorageController::class);

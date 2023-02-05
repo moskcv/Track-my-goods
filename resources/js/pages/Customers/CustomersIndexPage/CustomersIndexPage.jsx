@@ -71,7 +71,7 @@ const CustomersIndexPage = () => {
                 {data?.data?.meta?.last_page > 1 &&
                     <Pagination
                         currentPage={queryParams.page}
-                        totalPages={data?.data?.last_page}
+                        totalPages={data?.data?.meta?.last_page}
                         onPageChange={value => setQueryParams({...queryParams, page: value})}
                     />
                 }
