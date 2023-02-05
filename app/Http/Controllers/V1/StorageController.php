@@ -11,6 +11,11 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class StorageController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Storage::class, 'storage');
+    }
+
     public function index(): AnonymousResourceCollection
     {
         return StorageResource::collection(Storage::paginate(config('platform.max_per_page')));
@@ -54,6 +59,8 @@ class StorageController extends Controller
 
     public function options()
     {
+        $this->authorize('view storages');
+
         return Storage::pluck('title', 'id');
     }
 }

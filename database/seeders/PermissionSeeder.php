@@ -41,6 +41,14 @@ class PermissionSeeder extends Seeder
             'create users',
             'update users',
             'delete users',
+            'view storages',
+            'create storages',
+            'update storages',
+            'delete storages',
+            'view categories',
+            'create categories',
+            'update categories',
+            'delete categories',
         ];
     }
 }

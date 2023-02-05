@@ -11,6 +11,11 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Category::class, 'category');
+    }
+
     public function index(): AnonymousResourceCollection
     {
         return CategoryResource::collection(Category::with('parent')->paginate(config('platform.max_per_page')));
@@ -54,6 +59,8 @@ class CategoryController extends Controller
 
     public function options()
     {
+        $this->authorize('view categories');
+
         return Category::pluck('title', 'id');
     }
 }
