@@ -32,13 +32,13 @@ const UserForm = ({ onSubmit, user, setUser }) => {
             <Form.Select
                 label='Клієнт'
                 value={user.customer_id || ''}
-                onChange={e => setUser({...user, customer_id: e.target.value})}
+                onChange={value => setUser({...user, customer_id: value})}
                 options={customers || []}
             />
             <Form.Select
                 label='Роль'
                 value={user.role_id || ''}
-                onChange={e => setUser({...user, role_id: e.target.value})}
+                onChange={value => setUser({...user, role_id: value})}
                 options={roles || []}
             />
             <Button

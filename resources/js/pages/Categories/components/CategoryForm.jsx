@@ -22,7 +22,7 @@ const CategoryForm = ({ onSubmit, category, setCategory }) => {
                 label='Батьківська категорія'
                 options={categories}
                 value={category.parent_id || ''}
-                onChange={e => setCategory({...category, parent_id: e.target.value})}
+                onChange={value => setCategory({...category, parent_id: value})}
             />
             <Button
                 type='submit'

@@ -21,3 +21,7 @@ export { default as StoragesEditPage } from './Storages/StoragesEditPage/Storage
 export { default as AttributesCreatePage } from './Attributes/AttributesCreatePage/AttributesCreatePage';
 export { default as AttributesIndexPage } from './Attributes/AttributesIndexPage/AttributesIndexPage';
 export { default as AttributesEditPage } from './Attributes/AttributesEditPage/AttributesEditPage';
+
+export { default as ProductsCreatePage } from './Products/ProductsCreatePage/ProductsCreatePage';
+export { default as ProductsIndexPage } from './Products/ProductsIndexPage/ProductsIndexPage';
+export { default as ProductsEditPage } from './Products/ProductsEditPage/ProductsEditPage';

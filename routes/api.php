@@ -4,6 +4,7 @@ use App\Http\Controllers\V1\AttributeController;
 use App\Http\Controllers\V1\CategoryController;
 use App\Http\Controllers\V1\CustomerController;
 use App\Http\Controllers\V1\PermissionController;
+use App\Http\Controllers\V1\ProductController;
 use App\Http\Controllers\V1\RoleController;
 use App\Http\Controllers\V1\StorageController;
 use App\Http\Controllers\V1\UserController;
@@ -22,7 +23,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    $user = $request->user();
+    $user->permissions = $user->roles->first()->getPermissionNames();
+
+    return $user;
 });
 
 Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
@@ -41,6 +45,9 @@ Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
 
     Route::get('storages/options', [StorageController::class, 'options']);
     Route::apiResource('storages', StorageController::class);
+
+    Route::get('products/options', [ProductController::class, 'options']);
+    Route::apiResource('products', ProductController::class);
 
     Route::get('permissions', [PermissionController::class, 'index']);
 });

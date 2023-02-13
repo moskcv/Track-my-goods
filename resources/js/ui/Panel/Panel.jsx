@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Panel = ({ children }) => (
-    <div className='px-4 py-6 bg-white rounded-xl border-gray-300 border'>
+    <div className='px-4 py-6 bg-white rounded-xl border-gray-300 border mb-4'>
         {children}
     </div>
 )

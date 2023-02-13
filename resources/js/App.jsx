@@ -5,7 +5,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Layout } from './components';
 import { AuthProvider, useAuth } from './contexts/useAuth';
-import { AttributesCreatePage, AttributesEditPage, AttributesIndexPage, CategoriesCreatePage, CategoriesEditPage, CategoriesIndexPage, CustomersCreatePage, CustomersEditPage, CustomersIndexPage, RolesCreatePage, RolesEditPage, RolesIndexPage, StoragesCreatePage, StoragesEditPage, StoragesIndexPage, UsersCreatePage, UsersEditPage, UsersIndexPage } from './pages';
+import { AttributesCreatePage, AttributesEditPage, AttributesIndexPage, CategoriesCreatePage, CategoriesEditPage, CategoriesIndexPage, CustomersCreatePage, CustomersEditPage, CustomersIndexPage, ProductsCreatePage, ProductsEditPage, ProductsIndexPage, RolesCreatePage, RolesEditPage, RolesIndexPage, StoragesCreatePage, StoragesEditPage, StoragesIndexPage, UsersCreatePage, UsersEditPage, UsersIndexPage } from './pages';
 
 const Test = () => {
     const auth = useAuth();
@@ -22,7 +22,6 @@ const LoginPage = () => {
     })
     const auth = useAuth();
     const navigate = useNavigate();
-
 
     const handleFormSubmit = e => {
         e.preventDefault();
@@ -93,6 +92,10 @@ const App = () => (
                     <Route path='attributes' element={<AttributesIndexPage />} />
                     <Route path='attributes/create' element={<AttributesCreatePage />} />
                     <Route path='attributes/:id/edit' element={<AttributesEditPage />} />
+
+                    <Route path='products' element={<ProductsIndexPage />} />
+                    <Route path='products/create' element={<ProductsCreatePage />} />
+                    <Route path='products/:id/edit' element={<ProductsEditPage />} />
                 </Route>
             </Routes>
 
